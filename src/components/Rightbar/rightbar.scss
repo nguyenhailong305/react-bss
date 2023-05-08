@@ -1,0 +1,180 @@
+$input-color: #f9f4f4;
+$placeholder-color: #eae1e1;
+
+@mixin block($padding, $width, $height, $backgroundColor) {
+  padding: $padding;
+  width: $width;
+  height: $height;
+  background-color: $backgroundColor;
+}
+@mixin flex-center($direction, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+}
+@mixin input($width, $height, $padding, $border-radius) {
+  width: $width;
+  height: $height;
+  border-radius: $border-radius;
+  border: none;
+  padding: $padding;
+  margin-bottom: 20px;
+  background-color: $input-color;
+
+  &:focus {
+    outline: none;
+  }
+  &::placeholder {
+    color: $placeholder-color;
+  }
+}
+
+.right__container {
+  width: 72%;
+  margin-left: 20%;
+
+  .right__table {
+    margin-top: 50px;
+    height: auto;
+    background-color: white;
+    width: 100%;
+    .my-table {
+      border-collapse: collapse;
+      width: 100%;
+      th,
+      td {
+        text-align: right;
+        padding: 20px;
+        &:last-child {
+          border-right: none;
+          text-align: right;
+        }
+      }
+      th {
+        border-bottom: 3px solid #ddd;
+        &:first-child {
+          text-align: left;
+        }
+      }
+      tbody tr td {
+        text-align: right;
+        border-bottom: 1px solid #ddd;
+        &:first-child {
+          text-align: left;
+        }
+        &:last-child {
+          text-align: right;
+        }
+      }
+      tbody tr:last-child td {
+        border-bottom: 0;
+      }
+    }
+  }
+  .right__section {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    .block__chart {
+      @include block(10px 10px, 42%, 415px, #fff);
+      @include flex-center(column, center);
+      .block__title {
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      canvas {
+        width: 300px !important;
+      }
+    }
+    .block__input {
+      @include block(10px 10px, 42%, 415px, #fff);
+
+      .input {
+        @include flex-center(column, center);
+        margin-top: 15px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .right__container {
+    margin-left: 24%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .right__container {
+    width: 100%;
+    margin: 20px 20px;
+    .right__table {
+      display: none;
+    }
+    .right__section {
+      display: block;
+      .block__title {
+        display: none;
+      }
+      .block__chart {
+        width: 92%;
+        height: 500px;
+        canvas {
+          width: 500px !important;
+          height: 500px !important;
+        }
+      }
+      .block__input {
+        margin-top: 20px;
+        width: 92%;
+        .input--larger {
+          @include input(650px, 40px, 10px, 5px);
+          border-bottom: 4px solid #d2d2d2;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .right__container {
+    .right__section {
+      width: 450px;
+      .block__chart {
+        height: 450px;
+        canvas {
+          width: 450px !important;
+          height: 450px !important;
+        }
+      }
+      .block__input {
+        .input--larger {
+          @include input(380px, 40px, 10px, 5px);
+          border-bottom: 4px solid #d2d2d2;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .right__container {
+    .right__section {
+      width:70%;
+      .block__chart {
+        height: 400px;
+        // canvas {
+        //   width: 380px !important;
+        //   height: 450px !important;
+        // }
+      }
+      .block__input {
+        margin-top: 20px;
+        .input--larger {
+          @include input(250px, 40px, 10px, 5px);
+          border-bottom: 4px solid #d2d2d2;
+        }
+      }
+    }
+  }
+}

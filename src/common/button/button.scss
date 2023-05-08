@@ -1,0 +1,37 @@
+$button-color: #f28e19;
+
+@mixin button($background-color, $color, $padding, $font-size, $font-weight) {
+  background-color: $background-color;
+  color: $color;
+  padding: $padding;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.button--large {
+  @include button($button-color, #fff, 0.7rem 2.9rem, 0.7rem, 800);
+}
+
+.button--small {
+  @include button($button-color, #fff, 0.9rem 1.5rem, 0.8rem, 600);
+  margin-top: 20px;
+}
+
+.button--smaller {
+  @include button($button-color, #fff, 0.7rem 1.9rem, 0.8rem, 600);
+}
+
+
+@media only screen and (max-width: 480px) {
+  .button--small {
+    @include button($button-color, #fff, 1rem 3.5rem, 0.8rem, 600);
+  }
+}

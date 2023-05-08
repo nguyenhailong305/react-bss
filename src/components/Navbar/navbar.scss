@@ -1,0 +1,27 @@
+@mixin flex-center($align: center, $justify: center) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+.navbar__container {
+  height: 70px;
+  background-color: #fff;
+  @include flex-center(center, flex-end);
+  padding: 0 20px;
+
+  .user {
+    @include flex-center(center);
+    margin-right: 30px;
+    .navbar__text {
+      margin-left: 5px;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+   .navbar__container {
+    display: none;
+   }
+}
+

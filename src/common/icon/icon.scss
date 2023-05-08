@@ -1,0 +1,21 @@
+@mixin flex-center($align: center, $justify: center) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+.title__sidebar {
+  margin-bottom: 15px;
+  .title__text {
+    margin-left: 5px;
+    @include flex-center(center, left);
+    .title__link {
+      @include flex-center(center, center);
+      padding-left: 5px;
+      color: #000;
+      &.active {
+        color: #0077cc;
+      }
+    }
+  }
+}

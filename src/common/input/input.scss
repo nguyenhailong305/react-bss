@@ -1,0 +1,55 @@
+$input-color: #f9f4f4;
+$placeholder-color: #EAE1E1;
+
+
+@mixin input($width ,$height, $padding, $border-radius ) {
+    width: $width;
+    height: $height;
+    border-radius: $border-radius;
+    border: none;
+    padding: $padding;
+    margin-bottom: 20px;
+    background-color: $input-color;
+  
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+        color: $placeholder-color;
+      }
+  }
+
+  .input--large {
+    @include input(370px ,25px, 10px, 2px );
+  }
+  .input--larger {
+    @include input(420px ,40px, 10px, 5px );
+    border-bottom: 4px solid #D2D2D2 ;
+  }
+  
+  .input--small {
+    @include input(180px ,15px, 10px, 2px );
+    margin : 0;
+    background-color: aquamarine;
+    
+  }
+
+  @media only screen and (max-width: 1200px) {
+    .input--larger {
+      @include input(320px ,40px, 10px, 5px );
+      border-bottom: 4px solid #D2D2D2 ;
+    }
+  }
+
+  @media only screen and (max-width: 992px) {
+    .input--larger {
+      @include input(260px ,40px, 10px, 5px );
+      border-bottom: 4px solid #D2D2D2 ;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    .input--larger {
+      @include input(200px ,40px, 10px, 5px );
+      border-bottom: 4px solid #D2D2D2 ;
+    }
+  }

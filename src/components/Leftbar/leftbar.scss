@@ -1,0 +1,53 @@
+@mixin flex-center($align: center, $justify: center) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 100%;
+  background-color: #f1f1f1;
+  padding: 20px;
+  transition: all 0.3s ease-in-out;
+
+  &.show {
+    left: 0;
+  }
+  .sidebar__toggle {
+    display: none;
+    position: absolute;
+    top: 0  ;
+    right: -50px;
+    width: 40px;
+    height: 40px;
+    color: #000000;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  .header__title {
+    margin-bottom: 30px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .sidebar {
+    left: -190px;
+    &.show {
+      left: 0;
+    }
+    .sidebar__toggle {
+      display: block;
+      &.hide {
+        display: none;
+      }
+    }
+  }
+}
+
+
